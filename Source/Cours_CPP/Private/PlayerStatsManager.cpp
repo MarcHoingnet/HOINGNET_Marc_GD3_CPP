@@ -29,3 +29,5 @@ void APlayerStatsManager::InitializeStats(int32 playersnumber)
 {
 	UE_LOG(LogTemp, Warning, TEXT("j'ai initialize les stats !"));
 	playersnumber = playersnumber;
+	
+}
