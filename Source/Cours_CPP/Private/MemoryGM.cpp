@@ -7,3 +7,12 @@ void AMemoryGM::UpdateScore(int32 value)
 {
 	MemoryScore = MemoryScore + value;
 }
+
+bool AMemoryGM::TestPair(int32 FirstWindowValue, int32 SecondWindowvalue)
+{
+	bool result = false;
+
+	result = (FirstWindowValue == SecondWindowvalue);
+
+	return result;
+}

@@ -27,4 +27,6 @@ public :
 	UFUNCTION(BlueprintCallable)
 	void UpdateScore(int32 value);
 
+	UFUNCTION(BlueprintCallable)
+	bool TestPair(int32 FirstWindowValue, int32 SecondWindowvalue);
 };

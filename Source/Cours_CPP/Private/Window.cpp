@@ -27,16 +27,19 @@ void AWindow::Tick(float DeltaTime)
 
 void AWindow::TurnWindow()
 {
-	bIsClickable = !bIsClickable; 
+	bIsClickable = !bIsClickable;
 	FRotator rot;
 
-	if(GetActorRotation().Euler().X == 0)
+	if (GetActorRotation().Euler().X == 0)
 	{
 		rot = FRotator(180.0f, 0.0f, 0.0f);
 
-	} else
+	}
+	else
 	{
 		rot = FRotator(0.0f, 0.0f, 0.0f);
 	}
 	SetActorRotation(rot);
 }
+
+
