@@ -2,9 +2,14 @@
 
 
 #include "GM_Collectible.h"
-#include "UObject/ConstructorHelpers.h"
 
-AGM_Collectible::AGM_Collectible()
+void AGM_Collectible::GetScore(int32 Score)
 {
-	
+    ScoreTotal = ScoreTotal + Score;
+    UE_LOG(LogTemp, Warning, TEXT("Score Total mis à jour : %d"), ScoreTotal);
+
+    if (GEngine)
+    {
+        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Score Total : %d"), ScoreTotal));
+    }
 }

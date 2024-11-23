@@ -13,8 +13,11 @@ UCLASS()
 class COURS_CPP_API AGM_Collectible : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-public:
-	AGM_Collectible();
 
+public:
+    UFUNCTION(BlueprintCallable)
+    void GetScore(int32 Score);
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 ScoreTotal;
 };
