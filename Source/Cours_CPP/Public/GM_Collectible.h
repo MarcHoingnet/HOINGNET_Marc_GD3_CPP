@@ -14,6 +14,8 @@ UCLASS()
 class COURS_CPP_API AGM_Collectible : public AGameModeBase
 {
 	GENERATED_BODY()
+protected:
+    virtual void BeginPlay() override;
 
 public:
     UFUNCTION(BlueprintCallable)
@@ -37,5 +39,17 @@ public:
 
     UFUNCTION(BlueprintCallable, category = "Timer")
     void UpdateTimer();
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+    TSubclassOf<UUserWidget> WB_ScoreCollectible;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+    UUserWidget* ScoreWidgetInstance; 
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+    TSubclassOf<UUserWidget> WB_EndCollectible;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+    UUserWidget* EndCollectibleInstance;
 
 };

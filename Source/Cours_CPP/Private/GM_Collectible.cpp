@@ -1,18 +1,39 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "GM_Collectible.h"
 
 
+void AGM_Collectible::BeginPlay()
+{
+    Super::BeginPlay();
+
+    ScoreWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), WB_ScoreCollectible);
+    ScoreWidgetInstance->AddToViewport();
+}
+
 void AGM_Collectible::GetScore(int32 Score)
 {
     ScoreTotal = ScoreTotal + Score;
-    UE_LOG(LogTemp, Warning, TEXT("Score Total mis à jour : %d"), ScoreTotal);
 
-    if (GEngine)
+    if (ScoreWidgetInstance)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Score Total : %d"), ScoreTotal));
+        UFunction* UpdateScoreFunc = ScoreWidgetInstance->FindFunction(FName("UpdateScore"));
+
+        if (UpdateScoreFunc)
+        {
+            struct FUpdateScoreParams
+            {
+                int32 NewScore;
+            };
+
+            FUpdateScoreParams Parms;
+            Parms.NewScore = ScoreTotal;
+
+            ScoreWidgetInstance->ProcessEvent(UpdateScoreFunc, &Parms);
+        }
     }
 }
 
@@ -23,18 +44,54 @@ void AGM_Collectible::StartTimer()
 
 }
 
+
 void AGM_Collectible::UpdateTimer()
 {
     if (RemainingTime > 0)
     {
         RemainingTime--;
         UE_LOG(LogTemp, Warning, TEXT("Temps restant : %d secondes"), RemainingTime);
+
+        //Appelle la fonction UpdateTimer dans WB_ScoreCollectible
+        if (ScoreWidgetInstance)
+        {
+            UFunction* UpdateTimerFunc = ScoreWidgetInstance->FindFunction(FName("UpdateTimer"));
+
+            if (UpdateTimerFunc)
+            {
+                struct FUpdateTimerParams
+                {
+                    int32 NewTime;
+                };
+
+                FUpdateTimerParams Parms;
+                Parms.NewTime = RemainingTime;
+
+                ScoreWidgetInstance->ProcessEvent(UpdateTimerFunc, &Parms);
+            }
+        }
     }
     else
     {
-        if (GetWorld())
+        EndCollectibleInstance = CreateWidget<UUserWidget>(GetWorld(), WB_EndCollectible);
+        EndCollectibleInstance->AddToViewport();
+
+        if (EndCollectibleInstance)
         {
-            UGameplayStatics::OpenLevel(GetWorld(), FName("testMap"));
+            UFunction* GetFinalScoreFunc = EndCollectibleInstance->FindFunction(FName("GetFinalScore"));
+
+            if (GetFinalScoreFunc)
+            {
+                struct FGetFinalScoreParams
+                {
+                    int32 FinalScore;
+                };
+
+                FGetFinalScoreParams Parms;
+                Parms.FinalScore = ScoreTotal;
+
+                EndCollectibleInstance->ProcessEvent(GetFinalScoreFunc, &Parms);
+            }
         }
     }
 }
