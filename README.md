@@ -31,7 +31,7 @@ Même chose pour les musiques et les bruitages, le but étant de tout lier entre
 Pour le mini jeu du Collectible, j'ai travaillé le Level Design de tel sorte que le joueur découvrira des nouveaux chemins et des nouvelles manières d'optimiser son run pour les prochaines fois.
 J'ai aussi voulu jouer avec la hauteur et les points de vue, pour rajouter une partie stratégique au jeu de plateau. Le joueur pourra utiliser sa première run sur le mini-jeu pour se repérer,
 ou bien pour tenter d'avoir directement le plus de points, quite a tomber dans certains pieges. Ici, le but est de proposer au joueur une expérience bien plus active et stressante où il
-devra faire preuve de réflexion en un temps imparti. Cela permet en plus de jouer avec le flow du jeu ainsi que les émotions du joueur.
+devra faire preuve de réflexion en un temps imparti. Cela permet en plus de jouer avec le flow du jeu ainsi qu'avec les émotions du joueur.
 
 
 ## Jeu de plateau - Collectible CPP :
