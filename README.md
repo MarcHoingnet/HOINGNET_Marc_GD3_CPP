@@ -27,3 +27,11 @@ Ce bouton va mettre le jeu en pause et proposer au joueur de revenir à l’écr
 
 J'ai aussi essayé de donner une certaine DA au jeu, pour cela j'ai utilisé l'IA et grâce à mes prompts, j'ai pu reste dans un style cartoon simple et amusant.
 Même chose pour les musiques et les bruitages, le but étant de tout lier entre-eux pour avoir une cohérence autant sonore que visuelle.
+
+Pour le mini jeu du Collectible, j'ai travaillé le Level Design de tel sorte que le joueur découvrira des nouveaux chemins et des nouvelles manières d'optimiser son run pour les prochaines fois.
+J'ai aussi voulu jouer avec la hauteur et les points de vue, pour rajouter une partie stratégique au jeu de plateau. Le joueur pourra utiliser sa première run sur le mini-jeu pour se repérer,
+ou bien pour tenter d'avoir directement le plus de points, quite a tomber dans certains pieges. Ici, le but est de proposer au joueur une expérience bien plus active et stressante où il
+devra faire preuve de réflexion en un temps imparti. Cela permet en plus de jouer avec le flow du jeu ainsi que les émotions du joueur.
+
+
+## Jeu de plateau - Collectible CPP :
