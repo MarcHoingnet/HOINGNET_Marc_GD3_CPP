@@ -51,6 +51,10 @@ Il va me permettre :
 - de fait apparaitre un *Widget* de fin du mini-jeu une fois le timer écoulé
 
 J'ai décidé de faire tout le reste en Blueprint car ce n'était pas des choses qui demandaient beaucoup de ressources ou encore une forte optimisation
+- les widgets secondaires liés au collectible
+- les BP Bonus et Malus lié néanmoins a la partie C++
+- le Level Blueprint pour la sauvegarde des parametres sonores
+- et pour le lancement du timer (grâce a la fonction en C++)
 
 Le but ici était d'optimiser le plus possible ces fonctions grâce au C++
 - Performance accrue avec le gain de Performance que propose le C++ directement compilé en instructions machine, et moins de surcharge que le blueprint
@@ -67,4 +71,5 @@ Le blueprint cependant est préférable dans plusieurs cas :
 
 Il est important de noter que les 2 marche tres bien ensemble si tout est bien fait, ils deviennent vite complémentaires.
 
-De plus, ce Game Mode va être réutilisé en *Blueprint* pour pouvoir lié le score total du Collectible au score final du joueur sur le board
+A noter que ce Game Mode va être réutilisé en *Blueprint* pour pouvoir lié le score total du Collectible au score final du joueur sur le board
+et pour récupérer les fonctions lié au timer par exemple et les reutiliser.
