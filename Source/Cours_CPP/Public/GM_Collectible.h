@@ -25,7 +25,7 @@ public:
     int32 ScoreTotal;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
-    int32 TimerDuration = 20;
+    int32 TimerDuration = 25;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timer")
     int32 RemainingTime;
