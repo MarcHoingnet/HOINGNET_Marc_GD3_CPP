@@ -73,3 +73,12 @@ Il est important de noter que les 2 marche tres bien ensemble si tout est bien f
 
 A noter que ce Game Mode va être réutilisé en *Blueprint* pour pouvoir lié le score total du Collectible au score final du joueur sur le board
 et pour récupérer les fonctions lié au timer par exemple et les reutiliser.
+
+
+## Nature Morte :
+La map a ouvrir se toruve dans :
+--> Content > Map > MaterialCours > NatureMorteMap
+Faire play pour avoir le bon point de vue 
+
+Les Material se trouve dans :
+--> Content > Assets 
